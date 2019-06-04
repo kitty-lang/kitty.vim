@@ -4,15 +4,22 @@ elseif exists("b:current_syntax")
 	finish
 endif
 
-" Keywords
 syn keyword kittyKeyword func nextgroup=kittyFuncName skipwhite skipempty
 
-syn match kittyFuncName /[a-z0-9][a-z0-9_]*/ display contained
+syn match kittyFunc   /[a-z0-9][a-z0-9_]*\ze(/  display
+syn match kittyMacro /[a-z0-9][a-z0-9_]*!\ze(/ display
 
-" Comments
+syn match kittyIdentifier /[a-z0-9][a-z0-9_]*/ display contained
+syn match kittyFuncName   /[a-z0-9][a-z0-9_]*/ display contained
+
+syn region kittyString start=+"+ end=+"+
+
 syn region kittyCommentLine start="//" end="$"
 
-" Highlighting
 hi def link kittyKeyword     Keyword
+hi def link kittyFunc        Function
+hi def link kittyMacro       Macro
+hi def link kittyIdentifier  Identifier
 hi def link kittyFuncName    Function
+hi def link kittyString      String
 hi def link kittyCommentLine Comment
