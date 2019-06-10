@@ -21,13 +21,15 @@ syn match kittyOperator /=/ display
 syn region kittyString start=+"+ end=+"+
 
 syn region kittyCommentLine  start="//"  end="$"
+syn region kittyCommentBlock start="/\*" end="\*/" contains=kittyCommentBlock
 
-hi def link kittyKeyword     Keyword
-hi def link kittyType        Type
-hi def link kittyFunc        Function
-hi def link kittyMacro       Macro
-hi def link kittyIdentifier  Identifier
-hi def link kittyFuncName    Function
-hi def link kittyOperator    Operator
-hi def link kittyString      String
-hi def link kittyCommentLine Comment
+hi def link kittyKeyword      Keyword
+hi def link kittyType         Type
+hi def link kittyFunc         Function
+hi def link kittyMacro        Macro
+hi def link kittyIdentifier   Identifier
+hi def link kittyFuncName     Function
+hi def link kittyOperator     Operator
+hi def link kittyString       String
+hi def link kittyCommentLine  Comment
+hi def link kittyCommentBlock Comment
